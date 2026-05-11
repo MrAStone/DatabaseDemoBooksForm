@@ -15,7 +15,7 @@ namespace DatabaseDemo
             con.Open();
             MySqlCommand cmd = new MySqlCommand();
             cmd.Connection = con;
-            string SQL = "";
+            string SQL = ""; // write your SQL query to get the ISBNs from the database
             cmd.CommandText = SQL;
             MySqlDataReader reader = cmd.;// select which type of query to execute (Scalar, Reader, NonQuery)
             while (reader.Read())
