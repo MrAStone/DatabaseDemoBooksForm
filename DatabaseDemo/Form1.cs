@@ -1,5 +1,9 @@
 using MySqlConnector;
 using System.ComponentModel;
+using System.Diagnostics.Metrics;
+using System.Reflection.Metadata;
+using System.Security.Policy;
+using System.Xml.Linq;
 namespace DatabaseDemo
 {
     public partial class Form1 : Form
@@ -35,7 +39,13 @@ namespace DatabaseDemo
             cmd.Connection = con;
             string SQL = "";
             cmd.CommandText = SQL;
+            string ISBN = cboISBN.Text;
             // add the parameter
+            // To use parameters in the SQL substitute the parameter with @identifier.
+            //WHERE name = @name
+            //After the command text has been assigned tell C# to replace the parameter with a variable/value
+            //cmd.Parameters.AddWithValue("@name", txtName.Text);
+            
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
